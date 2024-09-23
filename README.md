@@ -1,1 +1,1 @@
-# TelegramWebMinesweeper
+# TelegramMiniMinesweeper
