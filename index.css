@@ -10,8 +10,8 @@ body {
 .cell {
   width: 30px;
   height: 30px;
-  background-color: var(--tg-theme-button-color);
-  border: 1px solid var(--tg-theme-button-color);
+  background-color: var(--tg-theme-secondary-bg-color);
+  border: 10px solid var(--tg-theme-button-color);
   display: flex;
   align-items: center;
   justify-content: center;
