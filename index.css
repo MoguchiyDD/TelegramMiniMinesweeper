@@ -1,25 +1,37 @@
 body {
+  margin: 0;
+  padding: 0;
   background-color: var(--tg-theme-bg-color);
 }
 
-h1 {
+main {
+  padding: 1rem;
+  width: fit-content;
+}
+
+header h1 {
   color: var(--tg-theme-text-color);
 }
 
-#game {
+section #game {
   width: fit-content;
   gap: 0.25rem;
   display: grid;
   grid-template-columns: repeat(9, minmax(0, 1fr));
   grid-template-rows: repeat(9, minmax(0, 1fr));
 }
-.cell {
+section #game .cell {
   width: 2rem;
   height: 2rem;
   background-color: var(--tg-theme-button-color);
   border: 0.1em solid var(--tg-theme-button-color);
   border-radius: 0.25rem;
   cursor: pointer;
+}
+
+section #hint {
+  display: flex;
+  justify-content: space-between;
 }
 
 .cc {

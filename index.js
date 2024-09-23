@@ -2,6 +2,11 @@ const mineCount = 10;
 const gridSize = 9;
 let mines = [];
 
+const fillCounts = () => {
+  document.getElementById("countMines").innerHTML += mineCount;
+  document.getElementById("countCells").innerHTML += gridSize;
+}
+
 function initGame() {
   const game = document.getElementById("game");
   game.innerHTML = '';
