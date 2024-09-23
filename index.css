@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--tg-theme-bg-color);
+}
+h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding: 1rem;
+  width: fit-content;
+}
+
+header {
+  background-color: var(--tg-theme-header-bg-color);
+}
+header h1 {
+  padding-bottom: 1.5rem;
+  font-size: 2.5rem;
+  color: var(--tg-theme-text-color);
+}
+
+section #game {
+  width: fit-content;
+  gap: 0.25rem;
+  display: grid;
+}
+section #game .cell {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--tg-theme-button-text-color);
+  /* color: #FFF; */
+  background-color: var(--tg-theme-button-color);
+  /* background-color: #000; */
+  border: 0.1em solid var(--tg-theme-button-color);
+  /* border-color: #000; */
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+section #hint {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: var(--tg-theme-subtitle-text-color);
+  background-color: var(--tg-theme-secondary-bg-color);
+  border-radius: 0.25rem;
+}
+
+.cc {
+  width: 50px;
+  height: 50px;
+}
+.c1 {
+  background-color: var(--tg-theme-bg-color);
+}
+.c2 {
+  background-color: var(--tg-theme-text-color);
+}
+.c3 {
+  background-color: var(--tg-theme-hint-color);
+}
+.c4 {
+  background-color: var(--tg-theme-link-color);
+}
+.c5 {
+  background-color: var(--tg-theme-button-color);
+}
+.c6 {
+  background-color: var(--tg-theme-button-text-color);
+}
+.c7 {
+  background-color: var(--tg-theme-secondary-bg-color);
+}
+.c8 {
+  background-color: var(--tg-theme-header-bg-color);
+}
+.c9 {
+  background-color: var(--tg-theme-bottom-bar-bg-color);
+}
+.c10 {
+  background-color: var(--tg-theme-accent-text-color);
+}
+.c11 {
+  background-color: var(--tg-theme-section-bg-color);
+}
+.c12 {
+  background-color: var(--tg-theme-section-header-text-color);
+}
+.c13 {
+  background-color: var(--tg-theme-section-separator-color);
+}
+.c14 {
+  background-color: var(--tg-theme-subtitle-text-color);
+}
+.c15 {
+  background-color: var(--tg-theme-destructive-text-color);
+}
