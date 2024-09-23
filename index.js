@@ -1,18 +1,17 @@
 const mineCount = 10;
 const gridSize = 9;
-let mines = [];
+let mines = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
 
 const fillCounts = () => {
   document.getElementById("countMines").innerHTML += mineCount;
-  document.getElementById("countCells").innerHTML += gridSize;
+  document.getElementById("countCells").innerHTML += gridSize * gridSize;
   document.getElementById("game").style.gridTemplateColumns = `repeat(${gridSize}, minmax(0, 1fr))`;
   document.getElementById("game").style.gridTemplateRows = `repeat(${gridSize}, minmax(0, 1fr))`;
 }
 
-function initGame() {
+const initGame = () => {
   const game = document.getElementById("game");
   game.innerHTML = '';
-  mines = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
 
   // mines
   for (let i = 0; i < mineCount; i++) {
@@ -27,20 +26,22 @@ function initGame() {
   // cells
   for (let i = 0; i < gridSize; i++) {
     for (let j = 0; j < gridSize; j++) {
-      const cell = document.createElement("div");
+      const cell = document.createElement("button");
       cell.className = "cell";
-      cell.onclick = () => revealCell(i, j);
+      cell.onclick = (e) => revealCell(e, i, j);
       game.appendChild(cell);
     }
   }
 }
 
-function revealCell(x, y) {
+const revealCell = (e, x, y) => {
+  console.log(mines);
   if (mines[x][y]) {
     alert("Game Over! You hit a mine.");
     initGame();  // reboot
   } else {
-    console.log(`Cell (${x}, ${y}) is safe.`);
+    console.log(e);
+    e.style.backgroundColor = "var(--tg-theme-accent-text-color)";
   }
 }
 

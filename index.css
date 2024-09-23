@@ -50,7 +50,7 @@ section #hint {
   display: flex;
   justify-content: space-between;
   font-size: 1rem;
-  color: var(--tg-theme-hint-color);
+  color: var(--tg-theme-subtitle-text-color);
   background-color: var(--tg-theme-secondary-bg-color);
   border-radius: 0.25rem;
 }
