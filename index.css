@@ -2,6 +2,10 @@ body {
   background-color: var(--tg-theme-bg-color);
 }
 
+h1 {
+  color: var(--tg-theme-text-color);
+}
+
 #game {
   display: grid;
   grid-template-columns: repeat(10, 30px);
@@ -10,8 +14,8 @@ body {
 .cell {
   width: 30px;
   height: 30px;
-  background-color: var(--tg-theme-secondary-bg-color);
-  border: 10px solid var(--tg-theme-button-color);
+  background-color: var(--tg-theme-button-color);
+  border: 2px solid var(--tg-theme-bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
