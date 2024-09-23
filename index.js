@@ -1,9 +1,8 @@
 const mineCount = 10;
 const gridSize = 9;
 const axys = [
-  [-1, 1], [0, 1], [1, 1],
-  [1, -1], [1, 0], [1,-1],
-  [0,-1], [-1, -1], [-1,0]
+  [-1, 1], [0, 1], [1, 1], [1, 0],
+  [1, -1], [0,-1], [-1,-1], [-1,0]
 ];
 let cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
 
@@ -46,8 +45,8 @@ const revealCell = (e, x, y) => {
     initGame();  // reboot
   } else {
     console.log(e);
-    e.target.style.backgroundColor = "var(--tg-theme-section-header-text-color)";
-    e.target.style.borderColor = "var(--tg-theme-section-header-text-color)";
+    e.target.style.backgroundColor = "#333";  // "var(--tg-theme-section-header-text-color)";
+    e.target.style.borderColor = "#333";  "var(--tg-theme-section-header-text-color)";
 
     const minesAround = findMinesAround(x, y);
     if (minesAround >= 1) {
@@ -65,12 +64,12 @@ const findMinesAround = (xstart, ystart) => {
 
   while(dotLoop < axys.length) {
     try {
-      alert(x, y, ":", x + axys[dotLoop][0], y + axys[dotLoop][1], "-", countMinesAround);
+      console.log(x, y, ":", x + axys[dotLoop][0], y + axys[dotLoop][1], "-", countMinesAround);
       if (cells[x + axys[dotLoop][0]][y + axys[dotLoop][1]] === true) {
         countMinesAround++;
       }
     } catch (error) {
-      alert(error);
+      console.log(error);
     }
     dotLoop++;
   }
