@@ -47,6 +47,7 @@ const revealCell = (e, x, y) => {
   } else {
     console.log(e);
     e.target.style.backgroundColor = "var(--tg-theme-section-header-text-color)";
+    e.target.style.borderColor = "var(--tg-theme-section-header-text-color)";
 
     const minesAround = findMinesAround(x, y);
     if (minesAround >= 1) {
@@ -64,11 +65,12 @@ const findMinesAround = (xstart, ystart) => {
 
   while(dotLoop < axys.length) {
     try {
+      alert(x, y, ":", x + axys[dotLoop][0], y + axys[dotLoop][1], "-", countMinesAround);
       if (cells[x + axys[dotLoop][0]][y + axys[dotLoop][1]] === true) {
         countMinesAround++;
       }
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
     dotLoop++;
   }
