@@ -10,12 +10,12 @@ h1 {
   width: fit-content;
   gap: 0.25rem;
   display: grid;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-  grid-template-rows: repeat(10, minmax(0, 1fr));
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  grid-template-rows: repeat(9, minmax(0, 1fr));
 }
 .cell {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 2rem;
+  height: 2rem;
   background-color: var(--tg-theme-button-color);
   border: 0.1em solid var(--tg-theme-button-color);
   border-radius: 0.25rem;

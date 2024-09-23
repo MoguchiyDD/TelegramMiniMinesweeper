@@ -1,5 +1,5 @@
 const mineCount = 10;
-const gridSize = 10;
+const gridSize = 9;
 let mines = [];
 
 function initGame() {
