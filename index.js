@@ -64,7 +64,7 @@ const findMinesAround = (xstart, ystart) => {
 
   while(dotLoop < axys.length) {
     try {
-      if (cells[x + axys[dotLoop][0]][y + dotLoop[1]]) {
+      if (cells[x + axys[dotLoop][0]][y + axys[dotLoop][1]]) {
         ++countMinesAround;
       }
     } catch (error) {
