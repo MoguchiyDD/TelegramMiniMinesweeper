@@ -46,7 +46,7 @@ const revealCell = (e, x, y) => {
     initGame();  // reboot
   } else {
     console.log(e);
-    e.target.style.backgroundColor = "var(--tg-theme-accent-text-color)";
+    e.target.style.backgroundColor = "var(--tg-theme-section-header-text-color)";
 
     const minesAround = findMinesAround(x, y);
     if (minesAround >= 1) {
