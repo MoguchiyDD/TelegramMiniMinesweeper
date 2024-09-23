@@ -5,6 +5,8 @@ let mines = [];
 const fillCounts = () => {
   document.getElementById("countMines").innerHTML += mineCount;
   document.getElementById("countCells").innerHTML += gridSize;
+  document.getElementById("game").style.gridTemplateColumns = `repeat(${gridSize}, minmax(0, 1fr))`;
+  document.getElementById("game").style.gridTemplateRows = `repeat(${gridSize}, minmax(0, 1fr))`;
 }
 
 function initGame() {
@@ -42,4 +44,5 @@ function revealCell(x, y) {
   }
 }
 
+fillCounts();
 initGame();

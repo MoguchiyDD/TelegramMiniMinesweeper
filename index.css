@@ -9,6 +9,9 @@ main {
   width: fit-content;
 }
 
+header {
+  background-color: var(--tg-theme-header-bg-color);
+}
 header h1 {
   color: var(--tg-theme-text-color);
 }
@@ -17,8 +20,8 @@ section #game {
   width: fit-content;
   gap: 0.25rem;
   display: grid;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-  grid-template-rows: repeat(9, minmax(0, 1fr));
+  /* grid-template-columns: repeat(9, minmax(0, 1fr)); */
+  /* grid-template-rows: repeat(9, minmax(0, 1fr)); */
 }
 section #game .cell {
   width: 2rem;
@@ -32,6 +35,8 @@ section #game .cell {
 section #hint {
   display: flex;
   justify-content: space-between;
+  background-color: var(--tg-theme-secondary-bg-color);
+  color: var(--tg-theme-hint-color);
 }
 
 .cc {
