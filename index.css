@@ -18,7 +18,7 @@ header {
 }
 header h1 {
   padding-bottom: 1.5rem;
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   color: var(--tg-theme-text-color);
 }
 
@@ -26,8 +26,6 @@ section #game {
   width: fit-content;
   gap: 0.25rem;
   display: grid;
-  /* grid-template-columns: repeat(9, minmax(0, 1fr)); */
-  /* grid-template-rows: repeat(9, minmax(0, 1fr)); */
 }
 section #game .cell {
   width: 2rem;
@@ -38,8 +36,11 @@ section #game .cell {
   font-size: 1.4rem;
   font-weight: bold;
   color: var(--tg-theme-button-text-color);
+  /* color: #FFF; */
   background-color: var(--tg-theme-button-color);
+  /* background-color: #000; */
   border: 0.1em solid var(--tg-theme-button-color);
+  /* border-color: #000; */
   border-radius: 0.25rem;
   cursor: pointer;
 }
