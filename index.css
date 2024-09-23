@@ -14,8 +14,8 @@ h1 {
   gap: 0.25rem;
 }
 .cell {
-  width: 1rem;
-  height: 1rem;
+  width: 2rem;
+  height: 2rem;
   background-color: var(--tg-theme-button-color);
   border: 2px solid var(--tg-theme-bg-color);
   display: flex;
