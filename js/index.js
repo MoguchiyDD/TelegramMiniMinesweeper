@@ -1,9 +1,5 @@
 const tg = window.Telegram.WebApp;
 
-const notification = document.getElementById("notification");
-const notificationText = notification.getElementsByTagName('p')[0];
-const notificationBtnYes = notification.getElementsByTagName('button')[0];
-const notificationBtnNo = notification.getElementsByTagName('button')[1];
 const inputMine = document.getElementById("mine");
 const labelMine = document.getElementById("labelMine").getElementsByTagName("span")[0];
 const markedMinesHint = document.getElementById("markedMines").getElementsByTagName("span")[0];
@@ -32,8 +28,6 @@ const fillCounts = () => {
 
 const initGame = () => {
   labelMine.innerHTML = mineCount;
-  notificationText.innerHTML = '';
-  notification.style.display = "none";
 
   cells.forEach((btn, _) => {
     if (btn === true) {
@@ -62,11 +56,6 @@ const initGame = () => {
       cell.className = "cell";
       cell.onclick = (e) => revealCell(e, i, j);
       game.appendChild(cell);
-      if (tg.colorScheme === "dark") {
-        cell.style.opacity = "0.7";
-      } else {
-        cell.style.opacity = "1";
-      }
     }
   }
 }
