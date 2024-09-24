@@ -20,6 +20,7 @@ header h1 {
 }
 
 section #game {
+  margin-bottom: 0.5rem;
   width: fit-content;
   gap: 0.25rem;
   display: grid;
@@ -27,7 +28,6 @@ section #game {
 section #game .cell {
   width: 2.25rem;
   height: 2.25rem;
-  margin-bottom: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
