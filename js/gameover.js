@@ -24,7 +24,7 @@
 
 
 function gameOver(res) {
-  tg.WebApp.showConfirm({
+  tg.showConfirm({
       text: `Game Over! You ${res}. Play again?`,
       onConfirm: () => {
         cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
