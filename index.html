@@ -14,10 +14,19 @@
       <h1>Minesweeper Game</h1>
     </header>
     <section>
-      <div id="notification"></div>
+      <div id="notification">
+        <div id="window">
+          <p id="text"></p>
+          <div id="buttons">
+            <button id="btnGameYes">Yes</button>
+            <button id="btnGameNo">No</button>
+          </div>
+        </div>
+      </div>
       <div id="game"></div>
       <div id="mineTurn">
         <input type="checkbox" name="mine" id="mine">
+        <span class="custom-checkbox"></span>
         <label for="mine" id="labelMine">Color Mines (<span></span> available)</label>
       </div>
       <div id="hint">
