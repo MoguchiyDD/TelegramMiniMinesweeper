@@ -97,6 +97,11 @@ section #mineTurn {
   margin-top: 0.75rem;
   font-size: 1.1rem;
   color: var(--tg-theme-text-color);
+  display: flex;
+  align-items: center;
+}
+section #mineTurn label {
+  margin-left: 0.36rem;
 }
 input[type="checkbox"] {
   display: none;
