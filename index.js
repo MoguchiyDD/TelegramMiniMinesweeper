@@ -1,4 +1,5 @@
 const notification = document.getElementById("notification");
+const notificationText = notification.getElementsByTagName('p')[0];
 const inputMine = document.getElementById("mine");
 const labelMine = document.getElementById("labelMine").getElementsByTagName("span")[0];
 
@@ -9,7 +10,22 @@ const axys = [
   [1, -1], [0,-1], [-1,-1], [-1,0]
 ];
 let cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
+let gridSizeAll = 81;
 
+
+const windowModal = (res) => {
+  const _cells = arrayCellsButton();
+  cells.forEach((cell, i) => {
+    cell.forEach((btn, j) => {
+      if (btn === true) {
+        _cells[i][j].style.backgroundColor = "var(--tg-theme-destructive-text-color)";
+        _cells[i][j].style.borderColor = "var(--tg-theme-destructive-text-color)";
+      }
+    })
+    notificationText.innerHTML = `Game Over! You ${res}. Play again?`;
+    notification.style.display = "flex";
+  })
+}
 
 const fillCounts = () => {
   document.getElementById("countMines").innerHTML += mineCount;
@@ -20,6 +36,15 @@ const fillCounts = () => {
 
 const initGame = () => {
   labelMine.innerHTML = mineCount;
+  notificationText.innerHTML = '';
+  notification.style.display = "none";
+
+  cells.forEach((btn, _) => {
+    if (btn === true) {
+      btn.style.backgroundColor = "var(--tg-theme-accent-text-color)";
+      btn.style.borderColor = "var(--tg-theme-accent-text-color)";
+    }
+  })
 
   const game = document.getElementById("game");
   game.innerHTML = '';
@@ -55,8 +80,8 @@ const revealMine = (e) => {
     }
   } else if (e.target.id === "close") {
     e.target.id = '';
-    e.target.style.backgroundColor = "var(--tg-theme-section-header-text-color)";
-    e.target.style.borderColor = "var(--tg-theme-section-header-text-color)";
+    e.target.style.backgroundColor = "var(--tg-theme-accent-text-color)";
+    e.target.style.borderColor = "var(--tg-theme-accent-text-color)";
     labelMine.innerHTML = `${parseInt(labelMine.innerHTML) + 1}`;
   }
 }
@@ -66,9 +91,9 @@ const revealCell = (e, x, y) => {
   else {
     if (e.target.id === '') {
       if (cells[x][y]) {
-        notification.innerText = "Game Over! You hit a mine.";
-        cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
-        initGame();  // reboot
+        windowModal("lose");
+        // cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
+        // initGame();  // reboot
       } else {
         e.target.style.backgroundColor = "var(--tg-theme-button-color)";
         e.target.style.borderColor = "var(--tg-theme-button-color)";
