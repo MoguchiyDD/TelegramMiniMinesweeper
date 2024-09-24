@@ -41,7 +41,7 @@ section #game .cell {
 }
 
 /* Info */
-section #hint {
+section .hint {
   margin-top: 1.25rem;
   padding: 1rem;
   display: flex;
@@ -188,4 +188,5 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   --tg-theme-button-color: #008000;
   --tg-theme-button-text-color: #eee;
   --tg-theme-secondary-bg-color: #191919;
+  --tg-theme-text-color: #eee;
 }
