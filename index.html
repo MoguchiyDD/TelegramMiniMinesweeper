@@ -29,9 +29,13 @@
         <span class="custom-checkbox"></span>
         <label for="mine" id="labelMine">Color Mines (<span></span> available)</label>
       </div>
-      <div id="hint">
+      <div class="hint">
         <p id="countMines">Mines: </p>
         <p id="countCells">Cells: </p>
+      </div>
+      <div class="hint">
+        <p id="markedMines">Mines marked: <span></span></p>
+        <p id="openedCells">Cells opened: <span></span></p>
       </div>
       <div class="cc c1">bg_color</div>
       <div class="cc c2">text_color</div>
@@ -51,7 +55,12 @@
     </section>
   </main>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script src="index.js"></script>
+  <script src="js/colors.js"></script>
+  <script src="js/array.js"></script>
+  <script src="js/find.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/gameover.js"></script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>
