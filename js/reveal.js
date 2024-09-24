@@ -28,11 +28,8 @@ const revealCell = (e, x, y) => {
   if (inputMine.checked === true) revealMine(e, x, y);
   else {
     if (e.target.id === '') {
-      if (cells[x][y]) {
-        gameOver("lose");
-        // cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
-        // initGame();  // reboot
-      } else {
+      if (cells[x][y]) gameOver("lose");
+      else {
         if (e.target.style.backgroundColor !== colorButton) {
           trueCells--;
           openedCellsHint.innerHTML = `${trueCells}`;
