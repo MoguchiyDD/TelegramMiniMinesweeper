@@ -14,15 +14,15 @@
       <h1>Minesweeper Game</h1>
     </header>
     <section>
+      <div class="hint">
+        <p id="countMines">☢ Mines: </p>
+        <p id="countCells">❒ Cells: </p>
+      </div>
       <div id="game"></div>
       <div id="mineTurn">
         <input type="checkbox" name="mine" id="mine">
         <span class="custom-checkbox"></span>
         <label for="mine" id="labelMine">Color Mines (<span></span> available)</label>
-      </div>
-      <div class="hint">
-        <p id="countMines">Mines: </p>
-        <p id="countCells">Cells: </p>
       </div>
       <div class="hint">
         <p id="markedMines">Mines marked: <span></span></p>
