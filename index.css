@@ -21,7 +21,6 @@ header h1 {
 
 /* Cells */
 section #game {
-  margin-bottom: 0.5rem;
   width: fit-content;
   gap: 0.25rem;
   display: grid;
@@ -119,8 +118,8 @@ input[type="checkbox"]:checked + .custom-checkbox {
   position: absolute;
   width: 0.35rem;
   height: 0.35rem;
-  border-width: 0 0.15rem 0.15rem 0;
   border: solid var(--tg-theme-secondary-bg-color);
+  border-width: 0 0.15rem 0.15rem 0;
   top: 0.2rem;
   left: 0.29rem;
   transform: rotate(45deg);
