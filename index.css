@@ -76,6 +76,7 @@ section #notification #window {
 section #notification #window p#text {
   padding-bottom: 1rem;
   font-size: 1.1rem;
+  color: var(--tg-theme-bg-color);
 }
 section #notification #window #buttons {
   display: flex;
