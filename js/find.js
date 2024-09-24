@@ -46,6 +46,7 @@ const findMinesAroundEmpty = (xstart, ystart) => {
 
           button.style.backgroundColor = colorButton;
           button.style.borderColor = colorButton;
+          button.style.opacity = "1";
         }
       } catch (error) {
         console.error(error);

@@ -37,6 +37,7 @@ const revealCell = (e, x, y) => {
 
         e.target.style.backgroundColor = colorButton;
         e.target.style.borderColor = colorButton;
+        e.target.style.opacity = "1";
     
         const minesAround = findMinesAround(x, y);
         if (minesAround >= 1) {
