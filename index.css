@@ -36,9 +36,9 @@ section #game .cell {
   /* color: var(--tg-theme-button-text-color); */
   color: #F1F5F9;
   /* background-color: var(--tg-theme-accent-text-color); */
-  background-color: #1E293B;
+  background-color: rgb(51, 65, 85);
   /* border: 0.1rem solid var(--tg-theme-accent-text-color); */
-  border: 0.1rem solid #1E293B;
+  border: 0.1rem solid rgb(51, 65, 85);
   border-radius: 0.25rem;
   cursor: pointer;
 }
@@ -80,7 +80,7 @@ input[type="checkbox"] {
 }
 input[type="checkbox"]:checked + .custom-checkbox {
   /* background-color: var(--tg-theme-accent-text-color); */
-  background-color: #1E293B;
+  background-color: rgb(51, 65, 85);
 }
 .custom-checkbox::after {
   content: "";
