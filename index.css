@@ -38,7 +38,6 @@ section #game .cell {
   border: 0.1rem solid var(--tg-theme-accent-text-color);
   border-radius: 0.25rem;
   cursor: pointer;
-  opacity: 0.7;
 }
 
 /* Info */

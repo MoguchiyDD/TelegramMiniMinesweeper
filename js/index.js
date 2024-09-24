@@ -1,4 +1,5 @@
 const tg = window.Telegram.WebApp;
+let colorScheme = '';
 
 const notification = document.getElementById("notification");
 const notificationText = notification.getElementsByTagName('p')[0];
@@ -62,12 +63,16 @@ const initGame = () => {
       cell.className = "cell";
       cell.onclick = (e) => revealCell(e, i, j);
       game.appendChild(cell);
+      if (colorScheme === "dark") {
+        cell.style.opacity = "0.7";
+      }
     }
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   tg.ready();
+  colorScheme = checkColorScheme();
   fillCounts();
   initGame();
 })
