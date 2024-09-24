@@ -24,14 +24,10 @@
 
 
 function gameOver(res) {
-  tg.showConfirm({
-      text: `Game Over! You ${res}. Play again?`,
-      onConfirm: () => {
-        cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
-        initGame();
-      },
-      onCancel: () => {
-        tg.close();
-      }
+  tg.showConfirm(`Game Over! You ${res}. Play again?`, (confirmed) => {
+    if (confirmed) {
+      cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
+      initGame();
+    } else  tg.close();
   });
 }
