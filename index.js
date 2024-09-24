@@ -1,3 +1,7 @@
+const notification = document.getElementById("notification");
+const inputMine = document.getElementById("mine");
+const labelMine = document.getElementById("labelMine").getElementsByTagName("span")[0];
+
 const mineCount = 10;
 const gridSize = 9;
 const axys = [
@@ -5,6 +9,8 @@ const axys = [
   [1, -1], [0,-1], [-1,-1], [-1,0]
 ];
 let cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
+labelMine.innerHTML = mineCount;
+
 
 const fillCounts = () => {
   document.getElementById("countMines").innerHTML += mineCount;
@@ -38,19 +44,42 @@ const initGame = () => {
   }
 }
 
-const revealCell = (e, x, y) => {
-  if (cells[x][y]) {
-    alert("Game Over! You hit a mine.");
-    initGame();  // reboot
-  } else {
-    e.target.style.backgroundColor = "var(--tg-theme-section-header-text-color)";
-    e.target.style.borderColor = "var(--tg-theme-section-header-text-color)";
+const revealMine = (e) => {
+  if (e.target.id === '') {
+    if (parseInt(labelMine.innerHTML) >= 1) {
+      e.target.id = "close";
+      e.target.style.backgroundColor = "var(--tg-theme-subtitle-text-color)";
+      e.target.style.borderColor = "var(--tg-theme-subtitle-text-color)";
+      labelMine.innerHTML = `${parseInt(labelMine.innerHTML) - 1}`;
+    }
+  } else if (e.target.id === "close") {
+    e.target.id = '';
+    e.target.style.backgroundColor = "var(--tg-theme-button-color)";
+    e.target.style.borderColor = "var(--tg-theme-button-color)";
+    labelMine.innerHTML = `${parseInt(labelMine.innerHTML) + 1}`;
+  }
+}
 
-    const minesAround = findMinesAround(x, y);
-    if (minesAround >= 1) {
-      e.target.innerHTML = minesAround;
-    } else {
-      findMinesAroundEmpty(x, y);
+const revealCell = (e, x, y) => {
+  if (inputMine.checked === true) revealMine(e)
+  else {
+    if (e.target.id === '') {
+      if (cells[x][y]) {
+        notification.innerText = "Game Over! You hit a mine.";
+        cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
+        initGame();  // reboot
+      } else {
+        e.target.style.backgroundColor = "var(--tg-theme-section-header-text-color)";
+        e.target.style.borderColor = "var(--tg-theme-section-header-text-color)";
+    
+        const minesAround = findMinesAround(x, y);
+        if (minesAround >= 1) {
+          e.innerHTML = minesAround;
+          e.className += " open";
+        } else {
+          findMinesAroundEmpty(x, y);
+        }
+      }
     }
   }
 }
