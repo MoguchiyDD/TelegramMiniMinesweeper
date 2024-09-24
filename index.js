@@ -1,3 +1,7 @@
+const notification = document.getElementById("notification");
+const inputMine = document.getElementById("mine");
+const labelMine = document.getElementById("labelMine").getElementsByTagName("span")[0];
+
 const mineCount = 10;
 const gridSize = 9;
 const axys = [
@@ -5,6 +9,7 @@ const axys = [
   [1, -1], [0,-1], [-1,-1], [-1,0]
 ];
 let cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
+
 
 const fillCounts = () => {
   document.getElementById("countMines").innerHTML += mineCount;
@@ -14,6 +19,8 @@ const fillCounts = () => {
 }
 
 const initGame = () => {
+  labelMine.innerHTML = mineCount;
+
   const game = document.getElementById("game");
   game.innerHTML = '';
 
@@ -38,44 +45,112 @@ const initGame = () => {
   }
 }
 
-const revealCell = (e, x, y) => {
-  console.log(cells);
-  if (cells[x][y]) {
-    alert("Game Over! You hit a mine.");
-    initGame();  // reboot
-  } else {
-    console.log(e);
+const revealMine = (e) => {
+  if (e.target.id === '') {
+    if (parseInt(labelMine.innerHTML) >= 1) {
+      e.target.id = "close";
+      e.target.style.backgroundColor = "var(--tg-theme-subtitle-text-color)";
+      e.target.style.borderColor = "var(--tg-theme-subtitle-text-color)";
+      labelMine.innerHTML = `${parseInt(labelMine.innerHTML) - 1}`;
+    }
+  } else if (e.target.id === "close") {
+    e.target.id = '';
     e.target.style.backgroundColor = "var(--tg-theme-section-header-text-color)";
     e.target.style.borderColor = "var(--tg-theme-section-header-text-color)";
+    labelMine.innerHTML = `${parseInt(labelMine.innerHTML) + 1}`;
+  }
+}
 
-    const minesAround = findMinesAround(x, y);
-    if (minesAround >= 1) {
-      e.target.innerHTML = minesAround;
+const revealCell = (e, x, y) => {
+  if (inputMine.checked === true) revealMine(e)
+  else {
+    if (e.target.id === '') {
+      if (cells[x][y]) {
+        notification.innerText = "Game Over! You hit a mine.";
+        cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
+        initGame();  // reboot
+      } else {
+        e.target.style.backgroundColor = "var(--tg-theme-button-color)";
+        e.target.style.borderColor = "var(--tg-theme-button-color)";
+    
+        const minesAround = findMinesAround(x, y);
+        if (minesAround >= 1) {
+          e.target.innerHTML = minesAround;
+          e.target.id = "open";
+        } else {
+          findMinesAroundEmpty(x, y);
+        }
+      }
     }
   }
+}
+
+const arrayCellsButton = () => {
+  const cellsButton = document.getElementsByClassName("cell");
+  const countCells = Array.from({ length: gridSize + 1 }, (_, i) => (i + 1) * gridSize - 1);
+  const arrayCellsButton = Array.from({ length: gridSize }, () => []);
+
+  let indexArrayCellsButton = 0;
+  Array.from(cellsButton).forEach((cell, i) => {
+    arrayCellsButton[indexArrayCellsButton].push(cell);
+    if (countCells.includes(i)) {
+      indexArrayCellsButton++;
+    }
+  })
+
+  return arrayCellsButton;
 }
 
 const findMinesAround = (xstart, ystart) => {
-  const x = xstart;
-  const y = ystart;
-
   let countMinesAround = 0;
-  let dotLoop = 0;
 
-  while(dotLoop < axys.length) {
-    try {
-      console.log(x, y, ":", x + axys[dotLoop][0], y + axys[dotLoop][1], "-", countMinesAround);
-      if (cells[x + axys[dotLoop][0]][y + axys[dotLoop][1]] === true) {
-        countMinesAround++;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-    dotLoop++;
-  }
+  axys.forEach(offset => {
+    const newX = xstart + offset[0];
+    const newY = ystart + offset[1];
+
+    if (newX < 0 || newY < 0 || newX >= cells.length || newY >= cells[0].length) return;
+    if (cells[newX][newY] === true) countMinesAround++;
+  })
 
   return countMinesAround;
 }
+
+const findMinesAroundEmpty = (xstart, ystart) => {
+  const _cells = arrayCellsButton();
+  const queue = [];
+  const visited = new Set();
+
+  let x = xstart;
+  let y = ystart;
+  queue.push([x, y]);
+
+  while (queue.length > 0) {
+    [x, y] = queue.shift();
+
+    axys.forEach(offset => {
+      const newX = x + offset[0];
+      const newY = y + offset[1];
+
+      if (newX < 0 || newY < 0 || newX >= cells.length || newY >= cells[0].length) return;
+      if (visited.has(`${newX},${newY}`)) return;
+      visited.add(`${newX},${newY}`);
+
+      try {
+        if (cells[newX][newY] === false) {
+          const minesAround = findMinesAround(newX, newY);
+          const button = _cells[newX][newY];
+
+          minesAround === 0 ? queue.push([newX, newY]) : button.innerHTML = minesAround;
+
+          button.style.backgroundColor = "var(--tg-theme-button-color)";
+          button.style.borderColor = "var(--tg-theme-button-color)";
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  }
+};
 
 fillCounts();
 initGame();
