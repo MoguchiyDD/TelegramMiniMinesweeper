@@ -9,7 +9,6 @@ const axys = [
   [1, -1], [0,-1], [-1,-1], [-1,0]
 ];
 let cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
-labelMine.innerHTML = mineCount;
 
 
 const fillCounts = () => {
@@ -20,6 +19,8 @@ const fillCounts = () => {
 }
 
 const initGame = () => {
+  labelMine.innerHTML = mineCount;
+
   const game = document.getElementById("game");
   game.innerHTML = '';
 
@@ -54,8 +55,8 @@ const revealMine = (e) => {
     }
   } else if (e.target.id === "close") {
     e.target.id = '';
-    e.target.style.backgroundColor = "var(--tg-theme-button-color)";
-    e.target.style.borderColor = "var(--tg-theme-button-color)";
+    e.target.style.backgroundColor = "var(--tg-theme-section-header-text-color)";
+    e.target.style.borderColor = "var(--tg-theme-section-header-text-color)";
     labelMine.innerHTML = `${parseInt(labelMine.innerHTML) + 1}`;
   }
 }
@@ -69,13 +70,13 @@ const revealCell = (e, x, y) => {
         cells = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
         initGame();  // reboot
       } else {
-        e.target.style.backgroundColor = "var(--tg-theme-section-header-text-color)";
-        e.target.style.borderColor = "var(--tg-theme-section-header-text-color)";
+        e.target.style.backgroundColor = "var(--tg-theme-button-color)";
+        e.target.style.borderColor = "var(--tg-theme-button-color)";
     
         const minesAround = findMinesAround(x, y);
         if (minesAround >= 1) {
-          e.innerHTML = minesAround;
-          e.className += " open";
+          e.target.innerHTML = minesAround;
+          e.target.id = "open";
         } else {
           findMinesAroundEmpty(x, y);
         }
@@ -141,8 +142,8 @@ const findMinesAroundEmpty = (xstart, ystart) => {
 
           minesAround === 0 ? queue.push([newX, newY]) : button.innerHTML = minesAround;
 
-          button.style.backgroundColor = "var(--tg-theme-section-header-text-color)";
-          button.style.borderColor = "var(--tg-theme-section-header-text-color)";
+          button.style.backgroundColor = "var(--tg-theme-button-color)";
+          button.style.borderColor = "var(--tg-theme-button-color)";
         }
       } catch (error) {
         console.error(error);

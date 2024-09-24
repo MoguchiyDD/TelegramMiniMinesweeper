@@ -34,11 +34,11 @@ section #game .cell {
   font-weight: bold;
   color: var(--tg-theme-button-text-color);
   /* color: #FFF; */
-  background-color: var(--tg-theme-button-color);
+  background-color: var(--tg-theme-section-header-text-color);
   /* background-color: #000; */
   border-width: 0.1rem;
   border-style: solid;
-  border-color: var(--tg-theme-button-color);
+  border-color: var(--tg-theme-section-header-text-color);
   /* border-color: #000; */
   border-radius: 0.25rem;
   cursor: pointer;
@@ -110,10 +110,10 @@ section #hint {
 }
 
 
-/* :root {
+:root {
   --tg-theme-subtitle-text-color: #696969;
   --tg-theme-section-header-text-color: #02ab02;
   --tg-theme-button-color: #008000;
   --tg-theme-button-text-color: #eee;
   --tg-theme-secondary-bg-color: #191919;
-} */
+}
