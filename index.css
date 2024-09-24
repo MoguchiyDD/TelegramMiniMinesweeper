@@ -1,7 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--tg-theme-bg-color);
+  /* background-color: var(--tg-theme-bg-color); */
+  background-color: #0F172A;
 }
 h1, p {
   margin: 0;
@@ -16,7 +17,8 @@ main {
 header h1 {
   margin-bottom: 1.5rem;
   font-size: 2.25rem;
-  color: var(--tg-theme-text-color);
+  /* color: var(--tg-theme-text-color); */
+  color: #F1F5F9;
 }
 
 /* Cells */
@@ -50,7 +52,8 @@ section .hint {
   display: flex;
   justify-content: space-between;
   font-size: 1rem;
-  color: var(--tg-theme-text-color);
+  /* color: var(--tg-theme-text-color); */
+  color: #F1F5F9;
   background-color: var(--tg-theme-secondary-bg-color);
   border-radius: 0.25rem;
 }
@@ -59,7 +62,8 @@ section .hint {
 section #mineTurn {
   margin-top: 0.75rem;
   font-size: 1.1rem;
-  color: var(--tg-theme-text-color);
+  /* color: var(--tg-theme-text-color); */
+  color: #F1F5F9;
   display: flex;
   align-items: center;
 }
