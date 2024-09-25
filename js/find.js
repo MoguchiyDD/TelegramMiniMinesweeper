@@ -39,7 +39,6 @@ const findMinesAroundEmpty = (xstart, ystart) => {
 
           minesAround === 0 ? queue.push([newX, newY]) : button.innerHTML = minesAround;
 
-          console.log(button.style.backgroundColor, colorButton);
           if (button.style.backgroundColor !== colorButton) {
             trueCells--;
             openedCellsHint.innerHTML = `${trueCells}`;

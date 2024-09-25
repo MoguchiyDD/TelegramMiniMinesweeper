@@ -38,9 +38,9 @@ section #game .cell {
   /* color: var(--tg-theme-button-text-color); */
   color: #F1F5F9;
   /* background-color: var(--tg-theme-accent-text-color); */
-  background-color: #1E293B;
+  background-color: #334155;
   /* border: 0.1rem solid var(--tg-theme-accent-text-color); */
-  border: 0.1rem solid #1E293B;
+  border: 0.1rem solid #334155;
   border-radius: 0.25rem;
   cursor: pointer;
 }

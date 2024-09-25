@@ -28,8 +28,20 @@ const revealCell = (e, x, y) => {
   if (inputMine.checked === true) revealMine(e, x, y);
   else {
     if (e.target.id === '') {
-      if (cells[x][y]) gameOver("lose");
-      else {
+      if (cells[x][y]) {
+        const _cells = arrayCellsButton();
+        cells.forEach((cell, i) => {
+          cell.forEach((btn, j) => {
+            if (btn === true) {
+              _cells[i][j].innerHTML = '☢';
+              _cells[i][j].style.color = colorButton;
+              _cells[i][j].style.backgroundColor = colorDestructiveText;
+              _cells[i][j].style.borderColor = colorDestructiveText;
+            }
+          })
+        })
+        gameOver("lose");
+      } else {
         if (e.target.style.backgroundColor !== colorButton) {
           trueCells--;
           openedCellsHint.innerHTML = `${trueCells}`;
