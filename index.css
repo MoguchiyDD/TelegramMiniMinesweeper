@@ -1,7 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--tg-theme-bg-color);
+  /* background-color: var(--tg-theme-bg-color); */
+  background-color: #0F172A;
 }
 h1, p {
   margin: 0;
@@ -14,11 +15,13 @@ main {
 }
 
 header h1 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   font-size: 2.25rem;
-  color: var(--tg-theme-text-color);
+  /* color: var(--tg-theme-text-color); */
+  color: #F1F5F9;
 }
 
+/* Cells */
 section #game {
   width: fit-content;
   gap: 0.25rem;
@@ -32,33 +35,82 @@ section #game .cell {
   align-items: center;
   font-size: 1.4rem;
   font-weight: bold;
-  color: var(--tg-theme-button-text-color);
-  /* color: #FFF; */
-  background-color: var(--tg-theme-section-header-text-color);
-  /* background-color: #000; */
-  border-width: 0.1rem;
-  border-style: solid;
-  border-color: var(--tg-theme-section-header-text-color);
-  /* border-color: #000; */
+  /* color: var(--tg-theme-button-text-color); */
+  color: #F1F5F9;
+  /* background-color: var(--tg-theme-accent-text-color); */
+  background-color: #1E293B;
+  /* border: 0.1rem solid var(--tg-theme-accent-text-color); */
+  border: 0.1rem solid #1E293B;
   border-radius: 0.25rem;
   cursor: pointer;
 }
-section #mineTurn {
-  margin-top: 0.75rem;
-  font-size: 1.1rem;
-  color: var(--tg-theme-text-color);
-}
-section #hint {
-  margin-top: 1.25rem;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
+
+/* Info */
+section .hint {
+  margin-bottom: 0.5rem;
   font-size: 1rem;
-  color: var(--tg-theme-subtitle-text-color);
-  background-color: var(--tg-theme-secondary-bg-color);
+  display: flex;
+}
+section .hint p {
+  padding: 0.5rem;
+  /* color: var(--tg-theme-text-color); */
+  color: #F1F5F9;
+  /* background-color: var(--tg-theme-secondary-bg-color); */
+  background-color: #1E293B;
   border-radius: 0.25rem;
 }
+section .hint p:first-of-type {
+  margin-right: 0.5rem;
+}
 
+/* CheckBox */
+section #mineTurn {
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.1rem;
+  /* color: var(--tg-theme-text-color); */
+  color: #F1F5F9;
+  display: flex;
+  align-items: center;
+}
+section #mineTurn label {
+  margin-left: 0.36rem;
+}
+input[type="checkbox"] {
+  display: none;
+}
+.custom-checkbox {
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  /* background-color: var(--tg-theme-subtitle-text-color); */
+  background-color: #334155;
+  border-radius: 0.3rem;
+  position: relative;
+  cursor: pointer;
+}
+input[type="checkbox"]:checked + .custom-checkbox {
+  /* background-color: var(--tg-theme-accent-text-color); */
+  background-color: #F1F5F9;
+}
+.custom-checkbox::after {
+  content: "";
+  position: absolute;
+  width: 0.35rem;
+  height: 0.35rem;
+  /* border: solid var(--tg-theme-secondary-bg-color); */
+  border: solid #1E293B;
+  border-width: 0 0.15rem 0.15rem 0;
+  top: 0.2rem;
+  left: 0.29rem;
+  transform: rotate(45deg);
+  display: none;
+}
+input[type="checkbox"]:checked + .custom-checkbox::after {
+  display: block;
+}
+
+/* Delete */
 .cc {
   width: 50px;
   height: 50px;
@@ -111,9 +163,11 @@ section #hint {
 
 
 :root {
+  --tg-theme-bg-color: #eee;
   --tg-theme-subtitle-text-color: #696969;
-  --tg-theme-section-header-text-color: #02ab02;
+  --tg-theme-accent-text-color: #02ab02;
   --tg-theme-button-color: #008000;
   --tg-theme-button-text-color: #eee;
   --tg-theme-secondary-bg-color: #191919;
+  --tg-theme-text-color: #eee;
 }
