@@ -1,4 +1,7 @@
 const tg = window.Telegram.WebApp;
+alert(JSON.stringify(tg.initDataUnsafe, null, 3));
+alert(JSON.stringify(tg.initDataUnsafe.user, null, 3));
+alert(tg.initDataUnsafe.user.first_name);
 
 const inputMine = document.getElementById("mine");
 const labelMine = document.getElementById("labelMine").getElementsByTagName("span")[0];
