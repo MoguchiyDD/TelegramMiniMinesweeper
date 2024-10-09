@@ -6,7 +6,6 @@ const revealMine = (e, x, y) => {
       e.target.style.borderColor = colorSubtitleText;
 
       labelMine.innerHTML = `${parseInt(labelMine.innerHTML) - 1}`;
-      markedMinesHint.innerHTML = `${mineCount - parseInt(labelMine.innerHTML)}`;
 
       if (cells[x][y] === true) trueMines.push([x,y]);
     }
@@ -22,10 +21,11 @@ const revealMine = (e, x, y) => {
       trueMines.slice(index, 1);
     }
   }
+  markedMinesHint.innerHTML = `${mineCount - parseInt(labelMine.innerHTML)}`;
 }
 
 const revealCell = (e, x, y) => {
-  if (inputMine.checked === true) revealMine(e, x, y);
+  if ((inputMine.checked === true) && (e.target.style.backgroundColor !== colorButton)) revealMine(e, x, y);
   else {
     if (e.target.id === '') {
       if (cells[x][y]) {

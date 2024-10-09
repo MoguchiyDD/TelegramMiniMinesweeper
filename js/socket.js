@@ -1,8 +1,7 @@
 
 const connectWebSocket = (id, firstName, lastName) => {
-  const name = lastName.length == 0 ? firstName : firstName + ' ' + lastName;
-
   try {
+    const name = lastName.length == 0 ? firstName : firstName + ' ' + lastName;
     const socket = new WebSocket("ws://127.0.0.1:8000/ws");
 
     socket.onopen = function (e) {
