@@ -1,7 +1,7 @@
 const tg = window.Telegram.WebApp;
-alert(JSON.stringify(tg.initDataUnsafe, null, 3));
-alert(JSON.stringify(tg.initDataUnsafe.user, null, 3));
-alert(tg.initDataUnsafe.user.first_name);
+const userID = tg.initDataUnsafe.user.id;
+const userFirstName = tg.initDataUnsafe.user.first_name;
+const userLastName = tg.initDataUnsafe.user.lasr_name;
 
 const inputMine = document.getElementById("mine");
 const labelMine = document.getElementById("labelMine").getElementsByTagName("span")[0];
@@ -67,4 +67,5 @@ document.addEventListener("DOMContentLoaded", () => {
   tg.ready();
   fillCounts();
   initGame();
+  connectWebSocket(userID, userFirstName, userLastName);
 })
