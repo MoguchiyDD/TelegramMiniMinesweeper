@@ -2,4 +2,4 @@
 
 /.venv
 /keys
-*/__pycache__
+__pycache__
