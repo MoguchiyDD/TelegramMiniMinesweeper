@@ -2,6 +2,7 @@ const tg = window.Telegram.WebApp;
 const userID = tg.initDataUnsafe.user.id;
 const userFirstName = tg.initDataUnsafe.user.first_name;
 const userLastName = tg.initDataUnsafe.user.lasr_name;
+const name = userLastName === undefined ? userFirstName : userFirstName + ' ' + userLastName;
 
 const inputMine = document.getElementById("mine");
 const labelMine = document.getElementById("labelMine").getElementsByTagName("span")[0];
@@ -68,5 +69,4 @@ document.addEventListener("DOMContentLoaded", () => {
   tg.ready();
   fillCounts();
   initGame();
-  connectWebSocket(userID, userFirstName, userLastName);
 })
