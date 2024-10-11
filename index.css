@@ -38,9 +38,9 @@ section #game .cell {
   /* color: var(--tg-theme-button-text-color); */
   color: #F1F5F9;
   /* background-color: var(--tg-theme-accent-text-color); */
-  background-color: #1E293B;
+  background-color: #334155;
   /* border: 0.1rem solid var(--tg-theme-accent-text-color); */
-  border: 0.1rem solid #1E293B;
+  border: 0.1rem solid #334155;
   border-radius: 0.25rem;
   cursor: pointer;
 }
@@ -108,66 +108,4 @@ input[type="checkbox"]:checked + .custom-checkbox {
 }
 input[type="checkbox"]:checked + .custom-checkbox::after {
   display: block;
-}
-
-/* Delete */
-.cc {
-  width: 50px;
-  height: 50px;
-}
-.c1 {
-  background-color: var(--tg-theme-bg-color);
-}
-.c2 {
-  background-color: var(--tg-theme-text-color);
-}
-.c3 {
-  background-color: var(--tg-theme-hint-color);
-}
-.c4 {
-  background-color: var(--tg-theme-link-color);
-}
-.c5 {
-  background-color: var(--tg-theme-button-color);
-}
-.c6 {
-  background-color: var(--tg-theme-button-text-color);
-}
-.c7 {
-  background-color: var(--tg-theme-secondary-bg-color);
-}
-.c8 {
-  background-color: var(--tg-theme-header-bg-color);
-}
-.c9 {
-  background-color: var(--tg-theme-bottom-bar-bg-color);
-}
-.c10 {
-  background-color: var(--tg-theme-accent-text-color);
-}
-.c11 {
-  background-color: var(--tg-theme-section-bg-color);
-}
-.c12 {
-  background-color: var(--tg-theme-section-header-text-color);
-}
-.c13 {
-  background-color: var(--tg-theme-section-separator-color);
-}
-.c14 {
-  background-color: var(--tg-theme-subtitle-text-color);
-}
-.c15 {
-  background-color: var(--tg-theme-destructive-text-color);
-}
-
-
-:root {
-  --tg-theme-bg-color: #eee;
-  --tg-theme-subtitle-text-color: #696969;
-  --tg-theme-accent-text-color: #02ab02;
-  --tg-theme-button-color: #008000;
-  --tg-theme-button-text-color: #eee;
-  --tg-theme-secondary-bg-color: #191919;
-  --tg-theme-text-color: #eee;
 }

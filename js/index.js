@@ -1,4 +1,8 @@
 const tg = window.Telegram.WebApp;
+const userID = tg.initDataUnsafe.user.id;
+const userFirstName = tg.initDataUnsafe.user.first_name;
+const userLastName = tg.initDataUnsafe.user.lasr_name;
+const name = userLastName === undefined ? userFirstName : userFirstName + ' ' + userLastName;
 
 const inputMine = document.getElementById("mine");
 const labelMine = document.getElementById("labelMine").getElementsByTagName("span")[0];
@@ -22,12 +26,13 @@ const fillCounts = () => {
   document.getElementById("countCells").innerHTML += gridSizeDouble;
   document.getElementById("game").style.gridTemplateColumns = `repeat(${gridSize}, minmax(0, 1fr))`;
   document.getElementById("game").style.gridTemplateRows = `repeat(${gridSize}, minmax(0, 1fr))`;
-  markedMinesHint.innerHTML = 0;
-  openedCellsHint.innerHTML = trueCells;
 }
 
 const initGame = () => {
+  trueCells = gridSizeDouble - mineCount;
   labelMine.innerHTML = mineCount;
+  markedMinesHint.innerHTML = 0;
+  openedCellsHint.innerHTML = trueCells;
 
   cells.forEach((btn, _) => {
     if (btn === true) {
