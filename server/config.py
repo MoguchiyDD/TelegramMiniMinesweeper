@@ -9,5 +9,5 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Config:
-    SQLALCHEMY_DATABASE_URI = getenv("DATABASE_URI")
+    SQLALCHEMY_DATABASE_URI = getenv("DB_URL")
     SQLALCHEMY_TRACK_MODIFICATIONS = False

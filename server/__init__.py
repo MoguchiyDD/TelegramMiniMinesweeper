@@ -7,8 +7,15 @@ from flask import Flask, jsonify
 from server.routes import main
 from server.models import db
 
+from os import getenv
+from dotenv import load_dotenv
+
+load_dotenv()
+
 app = Flask(__name__)
-app.config.from_object("server.config.Config")
+# app.config.from_object("server.config.Config")
+app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URI")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 app.register_blueprint(main)
 
